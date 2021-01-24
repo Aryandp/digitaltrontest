@@ -74,7 +74,6 @@ function Detail() {
     useEffect(() => {
          setState(store.bookSlot)
     }, [])
-    console.log(store)
     const handleChange = (event) => {
         event.preventDefault();
         setState({
@@ -86,9 +85,7 @@ function Detail() {
     const handleOnSave = () => {
         let data = store.slotList
         let objIndex = data.findIndex((obj => obj.id == store.bookSlot.id));
-        // //Update object's name property.
         data[objIndex] = {...data[objIndex],...state,"booked":true,}
-        console.log('state',state)
         dispatch(saveDetail(data))
         history.goBack()
         }
